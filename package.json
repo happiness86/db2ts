@@ -36,7 +36,8 @@
   },
   "files": [
     "bin",
-    "dist"
+    "dist",
+    "package.json"
   ],
   "scripts": {
     "build": "unbuild",
