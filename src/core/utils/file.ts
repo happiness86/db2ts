@@ -16,11 +16,11 @@ export async function generateTsFile(tablesData: TableDataMap, output: OutputOpt
     else {
       const template = output.fileType === 'dts' ? t.dtsTemplate : t.template
 
-      writeTsFile(tableName, output, template as string)
+      await writeTsFile(tableName, output, template)
     }
   }
   if (output.singleFile) {
-    writeTsFile('db2ts', output, bundle.dtsTemplate)
+    await writeTsFile('db2ts', output, bundle.dtsTemplate)
   }
 }
 
@@ -31,6 +31,7 @@ async function writeTsFile(tableName: string, output: OutputOptions, data: strin
   await makeSureDirExist(finalDir)
   const fileExt = fileType === 'dts' ? 'd.ts' : 'ts'
   await fs.writeFile(`${finalDir}/${camelCase(tableName)}.${fileExt}`, data)
+  log(`${finalDir}/${camelCase(tableName)}.${fileExt} 生成成功`)
 }
 
 async function makeSureDirExist(dirName: string): Promise<undefined> {

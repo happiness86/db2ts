@@ -1,7 +1,5 @@
-import { log } from 'node:console'
 import MagicString, { Bundle } from 'magic-string'
 import { camelCase } from './file'
-import type { OutputOptions } from '../types'
 import type { TableColumn, TableData } from '../types/adapter'
 
 export class TsTemplate {
@@ -16,8 +14,8 @@ export class TsTemplate {
   }
 
   get dtsTemplate(): string {
-    this.s.replace(/export/g, 'declare')
-    return this.s.toString()
+    const temp = this.s.toString().replace(/export/g, 'declare')
+    return temp
   }
 
   get source(): MagicString {

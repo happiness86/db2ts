@@ -1,3 +1,4 @@
+import process from 'node:process'
 import { MysqlAdapter } from './adapters/mysql'
 import { generateTsFile } from './utils/file'
 import { mergeOptions } from './utils/options'
@@ -12,6 +13,7 @@ export default function db2ts(options: Db2TsOptions): void {
   ins?.init().then(async (tablesData) => {
     if (!tablesData)
       return
-    generateTsFile(tablesData, output)
+    await generateTsFile(tablesData, output)
+    process.exit()
   })
 }

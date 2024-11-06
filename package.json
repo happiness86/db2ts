@@ -31,7 +31,11 @@
       ]
     }
   },
+  "bin": {
+    "db2ts": "./dist/cli.mjs"
+  },
   "files": [
+    "bin",
     "dist"
   ],
   "scripts": {
