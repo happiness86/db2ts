@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      cac:
+        specifier: ^6.7.14
+        version: 6.7.14
       defu:
         specifier: ^6.1.4
         version: 6.1.4
@@ -2017,9 +2020,6 @@ packages:
     resolution: {integrity: sha512-FbAj6lXil6t8z4z3j0E5mfRlPzxkySotzUHwRXjlpRh10vc6AI6WN62ehZj82VG7M20rqogJ0GLwar2Xa05a8Q==}
     engines: {bun: '>=1.0.0', deno: '>=1.30.0', node: '>=8.0.0'}
 
-  magic-string@0.30.10:
-    resolution: {integrity: sha512-iIRwTIf0QKV3UAnYK4PU8uiEc4SRh5jX0mwpIwETPpHdhVM4f53RSwS/vXvN1JhGX+Cs7B8qIq3d6AH49O5fAQ==}
-
   magic-string@0.30.12:
     resolution: {integrity: sha512-Ea8I3sQMVXr8JhN4z+H/d8zwo+tYDgHE9+5G4Wnrwhs0gaK9fXTKx0Tw5Xwsd/bCPTTZNRAdpyzvoeORe9LYpw==}
 
@@ -3770,7 +3770,7 @@ snapshots:
       '@vue/reactivity-transform': 3.3.10
       '@vue/shared': 3.3.10
       estree-walker: 2.0.2
-      magic-string: 0.30.10
+      magic-string: 0.30.12
       postcss: 8.4.44
       source-map-js: 1.2.0
 
@@ -3785,7 +3785,7 @@ snapshots:
       '@vue/compiler-core': 3.3.10
       '@vue/shared': 3.3.10
       estree-walker: 2.0.2
-      magic-string: 0.30.10
+      magic-string: 0.30.12
 
   '@vue/shared@3.3.10': {}
 
@@ -4911,10 +4911,6 @@ snapshots:
   lru-cache@7.18.3: {}
 
   lru.min@1.1.1: {}
-
-  magic-string@0.30.10:
-    dependencies:
-      '@jridgewell/sourcemap-codec': 1.4.15
 
   magic-string@0.30.12:
     dependencies:

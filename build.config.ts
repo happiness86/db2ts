@@ -3,6 +3,7 @@ import { defineBuildConfig } from 'unbuild'
 export default defineBuildConfig({
   entries: [
     './src/core/index',
+    './src/cli.ts',
   ],
   outDir: 'dist',
   declaration: true,

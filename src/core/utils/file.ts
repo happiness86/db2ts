@@ -1,5 +1,6 @@
 import { log } from 'node:console'
 import fs from 'node:fs/promises'
+import path from 'node:path'
 import process from 'node:process'
 import { TsTemplate, TsTemplateBundle } from './template'
 import type { OutputOptions } from '../types'
@@ -15,17 +16,18 @@ export async function generateTsFile(tablesData: TableDataMap, output: OutputOpt
     else {
       const template = output.fileType === 'dts' ? t.dtsTemplate : t.template
 
-      writeTsFile(tableName, output.fileType, template as string)
+      writeTsFile(tableName, output, template as string)
     }
   }
   if (output.singleFile) {
-    writeTsFile('db2ts', 'dts', bundle.dtsTemplate)
+    writeTsFile('db2ts', output, bundle.dtsTemplate)
   }
 }
 
-async function writeTsFile(tableName: string, fileType: OutputOptions['fileType'], data: string): Promise<undefined> {
+async function writeTsFile(tableName: string, output: OutputOptions, data: string): Promise<undefined> {
+  const { fileType, dir } = output
   const root = process.cwd()
-  const finalDir = `${root}/db`
+  const finalDir = dir ? path.normalize(dir) : `${root}/db`
   await makeSureDirExist(finalDir)
   const fileExt = fileType === 'dts' ? 'd.ts' : 'ts'
   await fs.writeFile(`${finalDir}/${camelCase(tableName)}.${fileExt}`, data)
