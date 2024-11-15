@@ -1,6 +1,12 @@
 #!/usr/bin/env node
 
 function start() {
-  return import('../dist/cli.mjs')
+  if (typeof require !== 'undefined') {
+    require('../dist/cli.cjs')
+  }
+  else {
+    return import('../dist/cli.mjs')
+  }
 }
+
 start()
