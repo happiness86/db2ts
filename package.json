@@ -1,7 +1,7 @@
 {
   "name": "db2ts",
   "type": "module",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "packageManager": "pnpm@9.9.0",
   "description": "generate ts interface from table of db",
   "author": "happiness86",
@@ -32,7 +32,7 @@
     }
   },
   "bin": {
-    "db2ts": "./dist/cli.mjs"
+    "db2ts": "./bin/db2ts.js"
   },
   "files": [
     "bin",
